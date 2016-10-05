@@ -1,6 +1,13 @@
 ---
 ja:
   activerecord:
+    models:
+      customer: "顧客"
+    attributes:
+      customer:
+        family_name: 名字
+        given_name: 名前
+        email: メール
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

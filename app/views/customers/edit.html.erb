@@ -1,2 +1,11 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h1>顧客情報の編集</h1>
+    
+    <%= render 'form' %>
+    
+    <button type="button" style="margin-top:5px;" class="btn btn-default" data-toggle="modal" data-target="#delete-customer">顧客情報を削除する</button>
+    <%= link_to '戻る', customer_path(@customer),  style: "margin-top:5px;", class: "btn btn-default" %>
+  </div>
+</div>
+

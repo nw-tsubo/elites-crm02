@@ -1,3 +1,15 @@
+<% if @customer.errors.any? %>
+  <div class="alert alert-danger">
+    <p><b><%= @customer.errors.count %>件のエラーがあります</b></p>
+
+    <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  
 <%= form_for(@customer) do |f| %>
   <div class="form-group">
     <%= f.label :family_name %><br>
