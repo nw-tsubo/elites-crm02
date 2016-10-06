@@ -45,7 +45,8 @@ private
     params.require(:customer).permit(
       :family_name,
       :given_name,
-      :email
+      :email,
+      :company_id
     )
   end
 end
