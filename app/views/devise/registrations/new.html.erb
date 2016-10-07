@@ -6,6 +6,16 @@
       <%= devise_error_messages! %>
 
       <div class="form-group">
+        <%= f.label :family_name, "姓" %><br />
+        <%= f.text_field :family_name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :given_name, "名" %><br />
+        <%= f.text_field :given_name, class: "form-control" %>
+      </div>
+      
+      <div class="form-group">
         <%= f.label :email, "電子メール" %><br />
         <%= f.email_field :email, class: "form-control" %>
       </div>
