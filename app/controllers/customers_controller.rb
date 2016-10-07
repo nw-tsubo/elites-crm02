@@ -35,6 +35,8 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @comments = @customer.comments
+    @comment = Comment.new
   end
 
   def destroy
