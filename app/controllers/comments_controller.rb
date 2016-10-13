@@ -15,9 +15,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_to customer_url(@comment.customer_id)
-    else
-      redirect_to customer_url(@comment.customer_id)
     end
+    
+    @customer = Customer.find(@comment.customer_id)
+    @comments = @customer.comments
+    render template: "customers/show"
   end
 
   def edit

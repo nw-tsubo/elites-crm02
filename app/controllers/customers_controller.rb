@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   
   def index
     # @customers = Customer.page(params[:page])
@@ -21,11 +22,9 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
     if  @customer.update(customer_params)
       redirect_to @customer
     else
@@ -34,13 +33,11 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
     @comments = @customer.comments
     @comment = Comment.new
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
     @customer.destroy
     redirect_to root_path
   end
@@ -55,5 +52,9 @@ private
       :company_id,
       :post_id
     )
+  end
+  
+  def set_user
+    @customer = Customer.find(params[:id])
   end
 end
