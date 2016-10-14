@@ -19,6 +19,9 @@
     <h2>対応履歴</h2>
     <% @comments.each do |comment| %>
       <div class="media">
+        <div class="media-left">
+          <%= image_tag(comment.user.image_url, size: '64x64') %>
+        </div>
         <div class="media-body">
           <%= simple_format(comment.body) %>
           <p class="text-muted">
@@ -28,6 +31,8 @@
         </div>
       </div>
     <% end %>
+    
+    <hr/>
     
     <% if @comment.errors.any? %>
       <div class="alert alert-danger">

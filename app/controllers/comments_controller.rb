@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to customer_url(@comment.customer_id)
     else
@@ -42,6 +43,6 @@ class CommentsController < ApplicationController
 private
 
   def comment_params
-    params.require(:comment).permit(:body, :customer_id)
+    params.require(:comment).permit(:body, :customer_id, :user_id)
   end
 end
